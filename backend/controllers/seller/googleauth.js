@@ -2,11 +2,11 @@ const { google } = require('googleapis');
 const axios = require('axios');
 
 // Define the OAuth2 client directly in this file
-const GOOGLE_CLIENT_ID = "REMOVED_CLIENT_IDl.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "REMOVED_CLIENT_SECRET";
-
-const oauth2client = new google.auth.OAuth2(GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET, "postsecret");
-
+const oauth2client = new google.auth.OAuth2(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  "postsecret"
+);
 // Google login function
 const googlelogin = async (req, res) => {
   try {
