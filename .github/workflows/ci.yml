@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # 1. Check out your code
+      #3 1. Check out your code
       - name: Checkout Repository
         uses: actions/checkout@v3
 
