@@ -36,4 +36,26 @@ jobs:
         working-directory: backend
         run: |
           npm install --legacy-peer-deps
-          # npm test
+          npm install --save-dev jest jest-junit
+          $env:CI = 'true'
+          npm test
+
+      - name: Upload Test Report (junit.xml)
+        uses: actions/upload-artifact@v4
+        with:
+          name: jest-test-report
+          path: backend/junit.xml
+
+      - name: Publish Test Report to GitHub UI
+        uses: dorny/test-reporter@v1
+        with:
+          name: Jest Unit Tests
+          path: backend/junit.xml
+          reporter: jest-junit
+          fail-on-error: true
+
+      - name: Upload Coverage Report (HTML)
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html
+          path: backend/coverage/lcov-report/
