@@ -29,9 +29,7 @@
   "scripts": {
     "test": "jest --coverage"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
+ 
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-junit": "^16.0.0",
